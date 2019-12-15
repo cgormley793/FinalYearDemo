@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context=".NoticeActivity">
+
+
+    <TextView
+        android:id="@+id/textView_NoticeBoard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:text="NoticeBoard" />
+
+    <TextView
+        android:id="@+id/textView_add_notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:textSize="18dp"
+        android:onClick="goNewNotice"
+        android:textStyle="bold"
+        android:text="Add Notice" />
+</LinearLayout>

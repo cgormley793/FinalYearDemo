@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:id="@+id/textView_Reg_title"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:layout_marginTop="100dp"
+        android:text="User Registration" />
+
+    <EditText
+        android:id="@+id/editText_fullname"
+        android:layout_width="200dp"
+        android:layout_marginTop="60dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:layout_gravity="center_horizontal"
+        android:inputType="textPersonName"
+        android:hint="Enter Fullname"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/editText_UserEmail"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:textStyle="bold"
+        android:hint="Enter Email"
+        android:inputType="textPersonName"
+        />
+
+    <EditText
+        android:id="@+id/editText_Password"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:ems="10"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        />
+
+    <EditText
+        android:id="@+id/editText_rePassword"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:ems="10"
+        android:hint="ReEnter Password"
+        android:inputType="textPassword"
+        />
+
+    <Button
+        android:id="@+id/button_Reg"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="registerUser"
+        android:text="Register" />
+
+    <TextView
+        android:id="@+id/textView_Login"
+        android:layout_width="311dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18dp"
+        android:onClick="goLogin"
+        android:layout_marginTop="25dp"
+        android:text="Log In" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_UsrReg"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout>
