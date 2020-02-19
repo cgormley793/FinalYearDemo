@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,14 +24,21 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private ProgressBar progressBar;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+
         firebaseAuth = FirebaseAuth.getInstance();
         progressBar = (ProgressBar) findViewById(R.id.progressBar_UsrReg);
         progressBar.setVisibility(View.INVISIBLE);
+
+
+
     }
     public void registerUser(View view) {
         //getting fullname  email and password from edit text
@@ -38,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
         String password = ((EditText) findViewById(R.id.editText_Password)).getText().toString();
         String Reenterpassword = ((EditText) findViewById(R.id.editText_rePassword)).getText().toString();
         String fullname = ((EditText) findViewById(R.id.editText_fullname)).getText().toString();
+        String radiogroup = ((RadioGroup) findViewById(R.id.radiogroup_Client_PT)).toString();
 
 
 
@@ -66,9 +77,10 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Password is not strong enough", Toast.LENGTH_SHORT).show();
             return;
         }
-
-
-
+        if (radiogroup.isEmpty()){
+            Toast.makeText(this, "Please select an occupation", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         //if the email and password are not empty, display a progress bar
         progressBar.setVisibility(view.VISIBLE);
@@ -93,6 +105,26 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
     }
+   //public void onRadioButton(View view){
+        //is button now checked
+       //boolean checked = ((RadioButton) view).isChecked();
+       //check when radio button was clicked
+       //switch (view.getId()){
+           //case R.id.radiobutton_Client:
+               //if (checked)
+                   //break;
+           //case R.id.radiobutton_PersonalTrainer:
+               //if (checked)
+                   //break;
+       //}
+   //}
+
+
+
+
+
+
+
 
     public void goLogin(View view) {
         startActivity(new Intent(RegisterActivity.this, MainActivity.class));
