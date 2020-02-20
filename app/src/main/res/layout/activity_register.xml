@@ -8,20 +8,19 @@ android:background="@color/colorPrimaryDark"
 android:orientation="vertical"
 tools:context=".RegisterActivity">
 
-<TextView
-    android:id="@+id/textView_Reg_title"
+<ImageView
+    android:id="@+id/imageView_personicon"
     android:layout_width="200dp"
-    android:layout_height="40dp"
+    android:layout_height="60dp"
+    android:src="@drawable/personicon"
+    android:layout_marginTop="40dp"
     android:layout_gravity="center_horizontal"
-    android:textSize="24dp"
-    android:textStyle="bold"
-    android:layout_marginTop="100dp"
-    android:text="User Registration" />
+    />
 
 <EditText
     android:id="@+id/editText_fullname"
     android:layout_width="200dp"
-    android:layout_marginTop="60dp"
+    android:layout_marginTop="40dp"
     android:layout_height="40dp"
     android:ems="10"
     android:layout_gravity="center_horizontal"
@@ -41,6 +40,17 @@ tools:context=".RegisterActivity">
     android:hint="Enter Email"
     android:inputType="textPersonName"
     />
+
+    <EditText
+        android:id="@+id/editText_mobile"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:hint="Enter Mobile Number"
+        android:inputType="phone"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        />
 
 <EditText
     android:id="@+id/editText_Password"
@@ -75,6 +85,8 @@ tools:context=".RegisterActivity">
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Client"
+        android:textSize="18dp"
+        android:textStyle="bold"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="30dp"
 
@@ -84,6 +96,8 @@ tools:context=".RegisterActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Personal Trainer"
+        android:textSize="18dp"
+        android:textStyle="bold"
         android:layout_marginLeft="190dp"
         android:layout_marginTop="-30dp"
 
@@ -93,7 +107,7 @@ tools:context=".RegisterActivity">
     android:id="@+id/button_Reg"
     android:layout_width="200dp"
     android:layout_height="40dp"
-    android:layout_marginTop="100dp"
+    android:layout_marginTop="20dp"
     android:layout_gravity="center_horizontal"
     android:onClick="registerUser"
     android:text="Register" />
@@ -106,7 +120,7 @@ tools:context=".RegisterActivity">
     android:layout_gravity="center_horizontal"
     android:textSize="18dp"
     android:onClick="goLogin"
-    android:layout_marginTop="25dp"
+    android:layout_marginTop="10dp"
     android:text="Log In" />
 
 <ProgressBar

@@ -19,12 +19,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private ProgressBar progressBar;
-
-
+    private RadioGroup radioGroup;
+    private DatabaseReference mDatabase;
 
 
     @Override
@@ -37,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar_UsrReg);
         progressBar.setVisibility(View.INVISIBLE);
 
-
+        mDatabase = FirebaseDatabase.getInstance().getReference("user");
 
     }
     public void registerUser(View view) {
@@ -48,8 +50,12 @@ public class RegisterActivity extends AppCompatActivity {
         String password = ((EditText) findViewById(R.id.editText_Password)).getText().toString();
         String Reenterpassword = ((EditText) findViewById(R.id.editText_rePassword)).getText().toString();
         String fullname = ((EditText) findViewById(R.id.editText_fullname)).getText().toString();
-        String radiogroup = ((RadioGroup) findViewById(R.id.radiogroup_Client_PT)).toString();
+        radioGroup = (RadioGroup) findViewById(R.id.radiogroup_Client_PT);
 
+        mDatabase.child("fullname").setValue(fullname);
+        mDatabase.child("email").setValue(email);
+        mDatabase.child("password").setValue(password);
+        mDatabase.child("radioGroup").setValue(radioGroup);
 
 
         //checking if fullname, email amd password are empty
@@ -77,8 +83,8 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Password is not strong enough", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (radiogroup.isEmpty()){
-            Toast.makeText(this, "Please select an occupation", Toast.LENGTH_LONG).show();
+        if(radioGroup.getCheckedRadioButtonId() == -1){
+            Toast.makeText(this, "Please select Client or Personal Trainer", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -105,26 +111,6 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
     }
-   //public void onRadioButton(View view){
-        //is button now checked
-       //boolean checked = ((RadioButton) view).isChecked();
-       //check when radio button was clicked
-       //switch (view.getId()){
-           //case R.id.radiobutton_Client:
-               //if (checked)
-                   //break;
-           //case R.id.radiobutton_PersonalTrainer:
-               //if (checked)
-                   //break;
-       //}
-   //}
-
-
-
-
-
-
-
 
     public void goLogin(View view) {
         startActivity(new Intent(RegisterActivity.this, MainActivity.class));
